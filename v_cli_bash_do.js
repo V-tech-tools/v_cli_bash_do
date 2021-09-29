@@ -13,7 +13,7 @@ const vdebug = () => {
   return this.value();
 };
 
-async function logMessage  (msg) {
+async function logMessage(msg) {
   if (vdebug()) {
     console.log(msg);
     return vdebug();
@@ -22,18 +22,17 @@ async function logMessage  (msg) {
 };
 
 // This is the actual function that will be called to execute the command
-async function bashDo(inputCommand = '', cb = 'undefined'){
-    exec(inputCommand, (err, stdout, stderr) => {
-      if (err) {
-        logMessage(err);
-        return err;
-      } else {
-        var response =  logMessage({ stdout, stderr });
-        
-        (typeof cb === 'function') ? cb(response) : "" ;
-        var helper2 =  response;
-      }
-    });
-  };
+async function bashDo(inputCommand = '', cb = 'undefined') {
+  exec(inputCommand, (err, stdout, stderr) => {
+    if (err) {
+      logMessage(err);
+      return err;
+    } else {
+      var response = { stdout, stderr };
+      (typeof cb === 'function') ? cb(response) : "";
+      return logMessage(response);
+    }
+  });
+};
 
 module.exports = bashDo;
