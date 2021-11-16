@@ -4,7 +4,7 @@
   "description": "[.v.] Node Module that only requires a single function call to execute some bash/shell code in a child_process",
   "main": "v_cli_bash_do.js",
   "scripts": {
-    "test": "node v_cli_bash_do.test.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/V-tech-tools/v_cli_bash_do/issues"
   },
-  "homepage": "https://github.com/V-tech-tools/v_cli_bash_do#readme"
+  "homepage": "https://github.com/V-tech-tools/v_cli_bash_do#readme",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
 }
