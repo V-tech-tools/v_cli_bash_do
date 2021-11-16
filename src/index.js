@@ -2,7 +2,7 @@
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 
-vBash = async (command) => {
+module.exports = async (command) => {
   try {
     const { stdout, stderr } = await exec(command);
     // console.log('stdout:', stdout);
@@ -14,5 +14,3 @@ vBash = async (command) => {
   }
 };
 
-
-module.exports = vBash;

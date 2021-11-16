@@ -1,22 +1,22 @@
 {
-  "name": "v_cli_bash_do",
+  "name": "v_execute",
   "version": "1.0.0",
-  "description": "[.v.] Node Module that only requires a single function call to execute some bash/shell code in a child_process",
-  "main": "v_cli_bash_do.js",
+  "description": "Node Module that only requires a single function call to execute some bash/shell code in a child_process",
+  "main": "v_execute.js",
   "scripts": {
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/V-tech-tools/v_cli_bash_do.git"
+    "url": "git+https://github.com/V-tech-tools/v_execute.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/V-tech-tools/v_cli_bash_do/issues"
+    "url": "https://github.com/V-tech-tools/v_execute/issues"
   },
-  "homepage": "https://github.com/V-tech-tools/v_cli_bash_do#readme",
+  "homepage": "https://github.com/V-tech-tools/v_execute#readme",
   "devDependencies": {
     "jest": "^27.3.1"
   }
