@@ -1,30 +1,33 @@
-# 🌀 V_CLI :: **bashDo(** <\_command\_> **)**
-> **[.v.]** *Node Module* that only requires a single function call to execute some bash/shell code in a child_process
+# 🌀 **v_execute(** <\_command\_> **)**
 
-#
-## ⏩ How To Install:
+> Node Module that only requires a single function call to execute some bash/shell code in a child_process
+
+## ⏩ How To Install__
+
 Add this repo git URL into dependencies in your projects package.json.  
 
-	...
-	"dependencies": {
-		"v_cli_bash_do":"https://github.com/V-tech-tools/v_cli_bash_do.git"  
-	}, 
-	...
+...
+    "dependencies": {
+      "v_execute":"https://github.com/V-tech-tools/v_execute.git"  
+    },
+...
 
-## 💥 How to use:
-Well just load it as a constant...and have fun... 
+## 💥 How to use__
 
-	const bashDo = require('./v_cli_bash_do');
+Well just load it as a constant...and have fun...
 
-	// Simple listing
-	bashDo("ls");
+...
+    const v_execute = require('./v_execute');
 
-	// Check git status
-	bashDo("git status");
+      // Simple listing
+      v_execute("ls");
 
-	...
+      // Check git status
+      v_execute("git status");
+...
 
+---
 
+### 👻 Author: **-<[\_.⟁.\_]>-**
 
-### 👻 Author: **-<[\_.⟁.\_]>-**   
 ### ⏰ CreatedTime: 11.08.2021 @ 21:51
