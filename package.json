@@ -1,6 +1,6 @@
 {
   "name": "v_execute",
-  "version": "1.0.0",
+  "version": "1.0.01",
   "description": "Node Module that only requires a single function call to execute some bash/shell code in a child_process",
   "main": "v_execute.js",
   "scripts": {
@@ -10,9 +10,17 @@
     "type": "git",
     "url": "git+https://github.com/V-tech-tools/v_execute.git"
   },
-  "keywords": [],
+  "keywords": [
+    "execute",
+    "shell",
+    "bash",
+    "child_process",
+    "node",
+    "nodejs",
+    "v-core9"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/V-tech-tools/v_execute/issues"
   },
