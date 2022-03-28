@@ -19,7 +19,7 @@ test('echo something', async () => {
 
 const resGitStatus = {
   stderr: "",
-  stdout: "On branch DEV/fixes001\nnothing to commit, working tree clean\n"
+  stdout: "On branch main\nYour branch is up to date with 'origin/main'.\n\nnothing to commit, working tree clean\n"
 };
 
 test('git status', async () => {
