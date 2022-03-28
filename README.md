@@ -2,29 +2,21 @@
 
 > Node Module that only requires a single function call to execute some bash/shell code in a child_process
 
-## ⏩ How To Install__
+## ⏩ Installing\_\_
 
-Add this repo git URL into dependencies in your projects package.json.  
+    npm i v_execute --save
 
-...
-    "dependencies": {
-      "v_execute":"https://github.com/V-tech-tools/v_execute.git"  
-    },
-...
-
-## 💥 How to use__
+## 💥 How to use\_\_
 
 Well just load it as a constant...and have fun...
 
-...
-    const v_execute = require('./v_execute');
+      const v_execute = require('./v_execute');
 
       // Simple listing
-      v_execute("ls");
+      console.log( await v_execute("ls") ); //-> { stdout, stderr }
 
       // Check git status
-      v_execute("git status");
-...
+      console.log( await v_execute("git status") );
 
 ---
 
