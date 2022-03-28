@@ -1,0 +1,8 @@
+.git
+.vscode
+.jshintrc
+.gitignore
+.editorconfig
+jest.config.js
+coverage
+__tests__
