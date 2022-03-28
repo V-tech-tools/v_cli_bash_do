@@ -23,6 +23,6 @@ const resGitStatus = {
 };
 
 test('git status', async () => {
-  expect(await v_execute("git status")).toStrictEqual(resGitStatus);
+  expect(await v_execute("git status")).toEqual(resGitStatus);
 });
 
