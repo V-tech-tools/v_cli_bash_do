@@ -1,6 +1,6 @@
 {
   "name": "v_execute",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Node Module that only requires a single function call to execute some bash/shell code in a child_process",
   "main": "index.js",
   "scripts": {
