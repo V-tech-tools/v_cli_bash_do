@@ -2,9 +2,10 @@
   "name": "v_execute",
   "version": "1.0.2",
   "description": "Node Module that only requires a single function call to execute some bash/shell code in a child_process",
-  "main": "v_execute.js",
+  "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "prepublish": "npm run test"
   },
   "repository": {
     "type": "git",
