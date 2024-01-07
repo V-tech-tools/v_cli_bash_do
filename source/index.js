@@ -1,6 +1,6 @@
 const exec = require('util').promisify(require('child_process').exec)
 
-const v_execute = async (command) => {
+export default async function v_execute(command) {
   try {
     return await exec(command)
   } catch (error) {
@@ -8,4 +8,3 @@ const v_execute = async (command) => {
   }
 }
 
-module.exports = v_execute

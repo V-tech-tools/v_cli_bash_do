@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import terser from '@rollup/plugin-terser'
 import strip from '@rollup/plugin-strip'
+import nodePolyfills from 'rollup-plugin-polyfill-node'
 
 // Bundle Config Data
 import { isProduction, name, formats, banner, footer } from './config/bundle.cfg.js'
@@ -38,6 +39,7 @@ const buildConfig = {
   plugins: [
     resolve(),
     commonjs(),
+    nodePolyfills(/* options */),
     ...(isProduction
       ? [
           terser({
