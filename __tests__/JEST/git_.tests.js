@@ -1,7 +1,7 @@
 const v_execute = require('../..')
 
 test('ls in this folder', async () => {
-  expect(await v_execute(`ls ./__tests__`)).toEqual({ stdout: 'git_.tests.js\n', stderr: '' })
+  expect(await v_execute(`ls ./__tests__/JEST`)).toEqual({ stdout: 'git_.tests.js\n', stderr: '' })
 })
 
 test('empty exec command', async () => {
