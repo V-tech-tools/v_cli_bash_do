@@ -6,18 +6,26 @@ import path from 'path'
  * @param {string} [cmdPath=base_cp_code] - The path of the command to be executed.
  * @returns {Object} - An object containing the child process, a function to send commands, and a function to run a command.
  */
-export default function hof_v_cp(cmdPath = './cp.code.js') {
+export default function hof_v_cp(cmdPath = './cp.code.js', stdoutOnData, stderrOnData) {
   const child = spawn('node', [path.join(__dirname, cmdPath)], {
     stdio: 'pipe' // Use pipe for stdin, stdout, stderr
   })
 
-  child.stdout.on('data', (data) => {
-    console.log(`CP_OUT: ${data}`)
-  })
+  child.stdout.on(
+    'data',
+    stdoutOnData
+    // (data) => {
+    //   console.log(`CP_OUT: ${data}`)
+    // }
+  )
 
-  child.stderr.on('data', (data) => {
-    console.error(`CP_ERROR: ${data}`)
-  })
+  child.stderr.on(
+    'data',
+    stderrOnData
+    // (data) => {
+    //   console.error(`CP_ERROR: ${data}`)
+    // }
+  )
 
   // Function to send a command to the child process
   const sendCommand = (command) => child.stdin.write(command + '\n')

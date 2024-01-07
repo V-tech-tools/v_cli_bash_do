@@ -4,7 +4,15 @@ describe('hof_v_cp', () => {
   let cp
 
   beforeEach(() => {
-    cp = hof_v_cp()
+    cp = hof_v_cp(
+      undefined,
+      (data) => {
+        // console.log(`CP_OUT: ${data}`)
+      },
+      (data) => {
+        // console.error(`CP_ERROR: ${data}`)
+      }
+    )
     // console.log('BeforeEach | CP: ', cp)
   })
 

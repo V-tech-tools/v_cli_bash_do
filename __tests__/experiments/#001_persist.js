@@ -1,7 +1,15 @@
 const { hof_v_cp } = require('../..')
 
 // Create a higher-order function for the specific command path
-const { runCmd } = hof_v_cp()
+const { runCmd } = hof_v_cp(
+  undefined,
+  (data) => {
+    console.log(`CP_OUT: ${data}`)
+  },
+  (data) => {
+    console.error(`CP_ERROR: ${data}`)
+  }
+)
 
 const readline = require('readline')
 
