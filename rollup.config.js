@@ -6,33 +6,18 @@ import strip from '@rollup/plugin-strip'
 import nodePolyfills from 'rollup-plugin-polyfill-node'
 
 // Bundle Config Data
-import { isProduction, name, formats, banner, footer } from './config/bundle.cfg.js'
+import { isProduction, name, formats, baseBundleConfig } from './config/bundle.cfg.js'
 
 // Rollup Config
-const buildConfig = {
+const v_execute_cfg = {
   input: path.resolve(__dirname, `./source/index.js`),
   treeshake: 'smallest',
   output: [
     // 3 Versions output
     ...formats.map((format) => ({
+      ...baseBundleConfig,
       file: `./dist/${name}.${format}.js`,
-      name,
-      banner,
-      footer,
-      format,
-      sourcemap: isProduction,
-      minifyInternalExports: isProduction,
-      sanitizeFileName: isProduction,
-      generatedCode: {
-        arrowFunctions: true,
-        constBindings: true,
-        conciseMethodProperty: true,
-        objectShorthand: true,
-        parameterDestructuring: true,
-        reservedNamesAsProps: true,
-        stickyRegExp: true,
-        templateString: true
-      }
+      format
       // experimentalMinChunkSize: 1000
     }))
   ],
@@ -61,4 +46,36 @@ const buildConfig = {
   ]
 }
 
-export default buildConfig
+const v_cp_code_cfg = {
+  input: path.resolve(__dirname, `./source/hof/cp.code.js`),
+  treeshake: 'smallest',
+  output: [
+    {
+      ...baseBundleConfig,
+      file: `./dist/cp.code.js`,
+      format: 'cjs'
+    }
+  ],
+  plugins: [
+    resolve(),
+    commonjs(),
+    nodePolyfills(/* options */),
+    ...(isProduction
+      ? [
+          terser({
+            maxWorkers: 4,
+            compress: {
+              // booleans_as_integers: true,
+              ecma: 2015
+            }
+          }),
+          strip({
+            //labels: ['unittest'],
+            debugger: true
+          })
+        ]
+      : [])
+  ]
+}
+
+export default [v_execute_cfg, v_cp_code_cfg]
