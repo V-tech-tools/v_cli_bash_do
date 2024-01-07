@@ -1,4 +1,4 @@
-import { exec } from 'child_process'
+const { exec } = require('child_process')
 import { isExitAlias } from './constants'
 
 process.stdin.setEncoding('utf8')

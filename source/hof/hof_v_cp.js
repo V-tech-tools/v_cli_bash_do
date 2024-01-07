@@ -1,15 +1,13 @@
 const { spawn } = require('child_process')
 import path from 'path'
 
-const base_cp_code = path.resolve(__dirname, 'cp.code.js')
-
 /**
  * Executes a command using a child process and returns an object with the child process, a function to send commands to the child process, and a function to run a command.
  * @param {string} [cmdPath=base_cp_code] - The path of the command to be executed.
  * @returns {Object} - An object containing the child process, a function to send commands, and a function to run a command.
  */
-export default function hof_v_cp(cmdPath = base_cp_code) {
-  const child = spawn('node', [cmdPath], {
+export default function hof_v_cp(cmdPath = './cp.code.js') {
+  const child = spawn('node', [path.join(__dirname, cmdPath)], {
     stdio: 'pipe' // Use pipe for stdin, stdout, stderr
   })
 

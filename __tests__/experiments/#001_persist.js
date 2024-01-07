@@ -1,15 +1,7 @@
-const hof_cp_cli = require('./new/hof_cp_cli')
+const { hof_v_cp } = require('../..')
 
 // Create a higher-order function for the specific command path
-const { sendCommand } = hof_cp_cli()
-
-// Call the higher-order function to spawn the child process
-// runChildProcess()
-
-// Example: Send multiple commands sequentially
-// sendCommand('PWD')
-// sendCommand('ls -l')
-// sendCommand('exit') // Terminate the child process after executing commands
+const { runCmd } = hof_v_cp()
 
 const readline = require('readline')
 
@@ -27,14 +19,14 @@ rl.on('line', (input) => {
   input = input.trim()
 
   if (exitAliases.indexOf(input) !== -1) {
-    sendCommand('exit')
+    runCmd('exit')
     setTimeout(() => {
       rl.close()
     }, 50)
     return
   }
 
-  sendCommand(input)
+  runCmd(input)
 
   rl.prompt()
 }).on('close', () => {
