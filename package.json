@@ -17,8 +17,8 @@
     "build": "rollup -c ./rollup.config.js --bundleConfigAsCjs",
     "build:prod": "rollup -c ./rollup.config.js --bundleConfigAsCjs --environment NODE_ENV:production",
     "prepack": "npm run lint:fix && npm run export:types && npm run build:prod && npm run test",
-    "lint:fix": "eslint source --fix",
-    "lint": "eslint source"
+    "lint:fix": "eslint source config --fix",
+    "lint": "eslint source config"
   },
   "repository": {
     "type": "git",
