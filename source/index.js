@@ -1,10 +1,4 @@
-const exec = require('util').promisify(require('child_process').exec)
+export { default as v_execute } from './v_execute'
 
-export default async function v_execute(command) {
-  try {
-    return await exec(command)
-  } catch (error) {
-    return false
-  }
-}
+export { default as hof_v_cp } from './hof/hof_v_cp'
 
