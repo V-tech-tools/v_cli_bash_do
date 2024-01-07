@@ -15,6 +15,9 @@ jest.config.mjs
 rollup.config.json
 rollup.config.js
 
+config
+config/**
+
 coverage.png
 coverage
 
