@@ -8,17 +8,15 @@ import nodePolyfills from 'rollup-plugin-polyfill-node'
 // Bundle Config Data
 import { isProduction, name, formats, baseBundleConfig } from './config/bundle.cfg.js'
 
-// Rollup Config
+// ROOT Rollup Config
 const v_execute_cfg = {
   input: path.resolve(__dirname, `./source/index.js`),
   treeshake: 'smallest',
   output: [
-    // 3 Versions output
     ...formats.map((format) => ({
       ...baseBundleConfig,
       file: `./dist/${name}.${format}.js`,
       format
-      // experimentalMinChunkSize: 1000
     }))
   ],
   plugins: [
@@ -30,7 +28,6 @@ const v_execute_cfg = {
           terser({
             maxWorkers: 4,
             compress: {
-              // booleans_as_integers: true,
               ecma: 2015
             }
           }),
@@ -40,12 +37,10 @@ const v_execute_cfg = {
           })
         ]
       : [])
-    // babel({
-    //   exclude: 'node_modules/**'
-    // })
   ]
 }
 
+// Child Process Code Config
 const v_cp_code_cfg = {
   input: path.resolve(__dirname, `./source/hof/cp.code.js`),
   treeshake: 'smallest',
@@ -56,26 +51,7 @@ const v_cp_code_cfg = {
       format: 'cjs'
     }
   ],
-  plugins: [
-    resolve(),
-    commonjs(),
-    nodePolyfills(/* options */),
-    ...(isProduction
-      ? [
-          terser({
-            maxWorkers: 4,
-            compress: {
-              // booleans_as_integers: true,
-              ecma: 2015
-            }
-          }),
-          strip({
-            //labels: ['unittest'],
-            debugger: true
-          })
-        ]
-      : [])
-  ]
+  plugins: [resolve(), commonjs(), nodePolyfills(/* options */)]
 }
 
 export default [v_execute_cfg, v_cp_code_cfg]
