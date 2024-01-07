@@ -14,13 +14,25 @@ Well just load it as a constant...and have fun...
 
 ```js
   const { v_execute, hof_v_cp } = require('./v_execute')
-  import { v_execute, hof_v_cp } from 'v_execute'
 
   // Simple listing
   console.log( await v_execute("ls") ) //-> { stdout, stderr }
 
   // Check git status
   console.log( await v_execute("git status") )
+  
+  
+  // Create a child_process
+  const cp = hof_v_cp(
+    undefined, 
+    (data)=> console.log(data),  // stdout.on('data', cbFn)
+    (data) => console.warn(data) // stderr.on('data', cbFn)
+  )
+
+  cp.runCmd("ls")
+  cp.sendCommand("ls")
+
+  console.log(cp.child) //-> child_process instance
 ```
 
 ### ES Modules
@@ -35,7 +47,11 @@ Well just load it as a constant...and have fun...
   console.log( await v_execute("git status") )
   
   // Create a child_process
-  const cp = hof_v_cp()
+  const cp = hof_v_cp(
+    undefined, 
+    (data)=> console.log(data),  // stdout.on('data', cbFn)
+    (data) => console.warn(data) // stderr.on('data', cbFn)
+  )
 
   cp.runCmd("ls")
   cp.sendCommand("ls")
