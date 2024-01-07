@@ -5,7 +5,7 @@ describe('hof_v_cp', () => {
 
   beforeEach(() => {
     cp = hof_v_cp()
-    console.log('BeforeEach | CP: ', cp)
+    // console.log('BeforeEach | CP: ', cp)
   })
 
   afterEach(() => {
